@@ -1,19 +1,28 @@
 #include <iostream>
 #include <cmath>
 #include <utility>
+#include <sstream>
+#include <string>
+#include <cctype>
+
 using namespace std;
+
 
 int countBits(int number);
 bool setBit(int number, int order);
 double mean(double array[], int numElements);
 double stddev(double array[], int numElements);
 pair<double, double> max2(double array[], int numElements);
+int countWords(string text);
+string decode(string text);
+string code(string text);
+string capitalizeWords(string text);
 
 
-int main() {
-    /*
+int main(int argc, char* argv[]) {
+
     //EXERCISE 1
-
+    /*
     int number;
 
     cout << "Enter a number: " << endl;
@@ -26,6 +35,8 @@ int main() {
         cout << "The one bits: " << result << endl;
     }
     */
+
+
     //EXERCISE 2
     /*
     int number, order;
@@ -46,6 +57,8 @@ int main() {
         }
     }
     */
+
+
     //EXERCISE 3
     /*
     int n;
@@ -66,6 +79,8 @@ int main() {
     double avg = mean(array, n);
     cout << "The average of the array is: " << avg << endl;
     */
+
+
     //EXERCISE  4
     /*
     int n;
@@ -90,6 +105,8 @@ int main() {
         cout << "The array is empty, no deviation" << endl;
     }
     */
+
+
     //EXERCISE 5
     /*
     int n;
@@ -110,14 +127,71 @@ int main() {
 
     pair<double, double> result = max2(array, n);
 
-if( !isnan(result.first) && !isnan(result.second) ){
+    if( !isnan(result.first) && !isnan(result.second) ){
         cout << "The two highest item: " << result.first << " and " << result.second << endl;
     } else {
         cout << "There is an empty array or only one item." << endl;
     }
     */
-    //NEXT ECERCISES
+
+
+    //NEXT EXERCISES
     //EXERCISE 1
+    /*
+    double sum = 0.0;
+
+    // we inspect the arguments from 1, cuz the 0. argument is the program's name
+
+    for (int i = 1; i < argc; ++i) {
+        istringstream iss(argv[i]);
+        double num;
+
+
+        // let's try to convert the strings into numeric values
+        if (iss >> num) {
+            sum += num;
+        }
+    }
+
+    // printing the result
+    cout << "The result: " << sum << endl;
+    */
+
+
+    //EXERCISE 2
+    /*
+    string text = "Random facts you didn't know.";
+    int numWords = countWords(text);
+    cout << "Number of the words: " << numWords << endl;
+    */
+
+
+    //EXERCISE 3
+    /*
+    string text = "Coded message you didn't know about.";
+
+    // coding
+    string encodedText = code(text);
+    cout << "Coded text: " << encodedText << endl;
+
+    // decoding
+    string decodedText = decode(encodedText);
+    cout << "Decoded text: " << decodedText << endl;
+    */
+
+
+    //EXERCISE 4
+    string line;
+
+    cout << "Give words (end sign: empty row):" << endl;
+    while( getline(cin, line) ){
+        if( line.empty() ){
+            break;
+        }
+
+        string result = capitalizeWords(line);
+        cout << result << endl;
+    }
 
 
     return 0;
@@ -208,4 +282,64 @@ pair<double, double> max2(double array[], int numElements){
     result.second = max2;
 
     return result;
+}
+
+int countWords(string text){
+    int wordCount = 0;
+    istringstream iss(text);
+    string word;
+
+    // we read the text to the words, separately at the white characters
+    while (iss >> word) {
+        wordCount++;
+    }
+
+    return wordCount;
+}
+
+string decode(string text) {
+    for (char &c : text) {
+        if (std::isalpha(c)) {
+            // decoding the previous char in abc order
+            if (c == 'a' || c == 'A') {
+                c += 25;
+            } else {
+                c--;
+            }
+        }
+    }
+    return text;
+}
+
+string code(string text) {
+    for (char &c : text) {
+        if (isalpha(c)) {
+            // coding the next char in abc order
+            if (c == 'z' || c == 'Z') {
+                c -= 25;
+            } else {
+                c++;
+            }
+        }
+    }
+    return text;
+}
+
+string capitalizeWords(string text) {
+    bool newWord = true;
+
+    for (char &c : text) {
+        if (isalpha(c)) {
+            if (newWord) {
+                c = toupper(c);
+                newWord = false;
+            } else {
+                c = tolower(c);
+            }
+        } else {
+            newWord = true;
+        }
+    }
+
+    return text;
 }
