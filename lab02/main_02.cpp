@@ -46,6 +46,7 @@ int main() {
     cout << "Sorted: " << endl;
     sortPoints(points, numPoints);
     printArray(points, numPoints);
+    //for commit comment
 
     deletePoints(points);
 
