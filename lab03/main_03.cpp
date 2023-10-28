@@ -1,6 +1,12 @@
 #include <iostream>
 
+using namespace std;
+
 int main() {
-    std::cout << "Hello, Lab_03" << std::endl;
+    // lab 3 commit
+    cout << "Hello, Lab_03" << endl;
+
+
+
     return 0;
 }
