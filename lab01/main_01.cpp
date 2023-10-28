@@ -21,6 +21,8 @@ string capitalizeWords(string text);
 
 int main(int argc, char* argv[]) {
 
+    // commit 1
+
     //EXERCISE 1
     /*
     int number;
