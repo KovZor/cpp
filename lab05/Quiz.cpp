@@ -33,6 +33,7 @@ Quiz::Quiz(const string name, const string &filename){
                 break;
             case 'A':
                 answers.push_back( Answer(line.substr(2)) );
+                break;
             default:
                 istringstream iss( line );
                 int value;
