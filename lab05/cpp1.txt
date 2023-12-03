@@ -1,0 +1,12 @@
+Q Ki a Google jelenlegi vezetoje?
+A Larry Page
+A Sergey Brin
+A Satya Nadella
+A Pichai Sundar
+4
+Q Melyik NEM egy IT-s munkakor megnevezese
+A Quantity Assurance Engineer
+A System Architect
+A Business Analyst
+A Full-Stack Developer
+1
