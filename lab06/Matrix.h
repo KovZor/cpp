@@ -13,7 +13,7 @@ public:
 // Default constructor
     Matrix( int mRows = 10, int mCols =10);
 // Copy constructor
-    Matrix(const Matrix& what);
+    Matrix( const Matrix& what );
 // Move constructor
     Matrix( Matrix&& what );
 // Destructor
