@@ -1,6 +1,12 @@
 #include <iostream>
 
+using namespace std;
+
 int main() {
-    std::cout << "Hello, Lab_07" << std::endl;
+    cout << "Hello, Lab_07" << endl;
+
+
+
+
     return 0;
 }
