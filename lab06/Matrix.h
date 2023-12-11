@@ -11,7 +11,7 @@ public:
 //Methods
 
 // Default constructor
-    Matrix( int mRows = 10, int mCols =10);
+    Matrix( int mRows = 10, int mCols = 10 );
 // Copy constructor
     Matrix( const Matrix& what );
 // Move constructor
